@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Boekenworm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Korte beschrijving of tagline van je project.
 
-## Available Scripts
+## Inhoudsopgave
 
-In the project directory, you can run:
+- [Overzicht](#overzicht)
+- [Installatie](#installatie)
+- [Gebruik](#gebruik)
+- [Bijdragen](#bijdragen)
+- [Licentie](#licentie)
 
-### `npm start`
+## Overzicht
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Beschrijf hier kort wat je project doet, waarom het nuttig is en de belangrijkste functies.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technologieën gebruikt
 
-### `npm test`
+- **React**: Versie X.X
+- **Andere afhankelijkheden**: Vermeld hier andere belangrijke technologieën die je hebt gebruikt.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installatie
 
-### `npm run build`
+1. Clone het project: `git clone https://github.com/jouw-gebruikersnaam/jouw-project.git`
+2. Navigeer naar de projectmap: `cd jouw-project`
+3. Installeer de afhankelijkheden: `npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Gebruik
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Start de ontwikkelserver: `npm start`
+2. Open de applicatie in je webbrowser: [http://localhost:3000](http://localhost:3000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Scripts
 
-### `npm run eject`
+- `npm start`: Start de ontwikkelserver.
+- `npm build`: Bouwt de applicatie voor productie.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Bijdragen
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Als je wilt bijdragen aan dit project, volg dan de onderstaande stappen:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Fork het project.
+2. Maak een nieuwe branch: `git checkout -b feature/naam-van-je-feature`
+3. Maak je wijzigingen en commit ze: `git commit -m 'Voeg nieuwe functie toe'`
+4. Duw naar de branch: `git push origin feature/naam-van-je-feature`
+5. Maak een pull-aanvraag aan.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Licentie
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dit project is gelicentieerd onder de [Naam van de licentie]. Zie het `LICENSE.md`-bestand voor details.

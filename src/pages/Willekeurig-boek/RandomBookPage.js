@@ -1,14 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import ResultsList from "../../components/ResultsList/ResultsList";
-import styles from "./5-boeken.module.css"
-const FiveBooksPage = () => {
+import styles from "./RandomBookPage.module.css"
+
+const RandomBookPage = () => {
     const location = useLocation();
     const { works } = location.state || {};
 
     return (
-        <div className={styles['five-books']}>
-            <h1>5 boeken:</h1>
+        <div className={styles['random-book']}>
+            <h1>Willekeurig Boek</h1>
             {works ? (
                 <ResultsList works={works} />
             ) : (
@@ -18,4 +19,4 @@ const FiveBooksPage = () => {
     );
 };
 
-export default FiveBooksPage;
+export default RandomBookPage;
