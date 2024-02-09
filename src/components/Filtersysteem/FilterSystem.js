@@ -14,18 +14,18 @@ const Questionnaire = () => {
     const navigate = useNavigate();
 
     const handleAnswer = (question, answer) => {
-        setAnswers({ ...answers, [question]: answer });
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [question]: answer,
+        }));
 
-        if (question === "personality") {
-            setCurrentQuestion("interest");
-        } else if (question === "interest") {
-            setCurrentQuestion("result");
-        }
+        setCurrentQuestion((prevQuestion) =>
+            prevQuestion === "personality" ? "interest" : "result"
+        );
     };
 
     const searchApi = async (category) => {
         try {
-
             const response = await fetch(
                 `https://openlibrary.org/subjects/${category}.json?&limit=5`
             );
@@ -40,41 +40,31 @@ const Questionnaire = () => {
 
     const getResult = () => {
         const { personality, interest } = answers;
+        const conditions = [
+            { personality: "introvert", interest: "deep", category: "art" },
+            { personality: "introvert", interest: "superficial", category: "fiction" },
+            { personality: "extravert", interest: "deep", category: "history" },
+            { personality: "extravert", interest: "superficial", category: "health" },
+        ];
 
-        if (personality === "introvert" && interest === "deep") {
-            if (!apiCalled) {
-                searchApi("art");
-            }
-            return "Je houdt van kunst!";
-        } else if (personality === "introvert" && interest === "superficial") {
-            if (!apiCalled) {
-                searchApi("fiction");
-            }
-            return "Je houdt van fictie!";
-        } else if (personality === "extravert" && interest === "deep") {
-            if (!apiCalled) {
-                searchApi("history");
-            }
-            return "Je houdt van geschiedenis!";
-        } else if (personality === "extravert" && interest === "superficial") {
-            if (!apiCalled) {
-                searchApi("health");
-            }
-            return "Je houdt van gezondheid!";
+        const condition = conditions.find(
+            (cond) => cond.personality === personality && cond.interest === interest
+        );
+
+        if (condition && !apiCalled) {
+            searchApi(condition.category);
         }
 
-        return "No result";
+        return condition ? `Je houdt van ${condition.category}!` : "No result";
     };
 
     useEffect(() => {
-        console.log("API Result:", apiResult);
         if (currentQuestion === "result" && apiResult && apiResult.works) {
-            // Add a delay of 3 seconds before navigating
             const timeoutId = setTimeout(() => {
                 navigate("/FiveBooksPage", { state: { works: apiResult.works } });
             }, 3000);
 
-            return () => clearTimeout(timeoutId); // Cleanup function to clear timeout if component unmounts
+            return () => clearTimeout(timeoutId);
         }
     }, [apiResult, currentQuestion, navigate]);
 

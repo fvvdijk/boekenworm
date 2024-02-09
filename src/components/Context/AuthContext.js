@@ -1,80 +1,53 @@
-// AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(() => {
-        // Initialize user state with data from localStorage or null
+    const getUserFromLocalStorage = () => {
         const storedUser = localStorage.getItem('user');
-
-        // Check if storedUser is a valid JSON string
-        if (storedUser && storedUser !== 'undefined') {
+        if (storedUser) {
             try {
-                // Try parsing storedUser as JSON
                 return JSON.parse(storedUser);
             } catch (error) {
                 console.error('Error parsing user data from localStorage:', error);
             }
         }
+        return null;
+    };
 
-        return null; // Return null if storedUser is not a valid JSON string
-    });
-    const [token, setToken] = useState(null);
-    const apikey = 'boekenworm:byfOaBewbNje38gcGoHw';
+    const getTokenFromLocalStorage = () => {
+        const storedToken = localStorage.getItem('token');
+        return storedToken ? storedToken : null;
+    };
 
-    // Use effect to set the token from localStorage on component mount
+    const saveUserToLocalStorage = (userData) => {
+        localStorage.setItem('user', JSON.stringify(userData));
+    };
+
+    const [user, setUser] = useState(() => getUserFromLocalStorage());
+    const [token, setToken] = useState(() => getTokenFromLocalStorage());
+    const apiKey = 'boekenworm:byfOaBewbNje38gcGoHw';
+
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
-        console.log('Stored Token:', storedToken);
-
-        if (storedToken) {
-            setToken(storedToken);
-        }
-
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
+        if (storedToken) setToken(storedToken);
     }, []);
 
     const login = async (username, password) => {
         try {
             const response = await axios.post(
                 'https://api.datavortex.nl/boekenworm/users/authenticate',
-                {
-                    username: username,
-                    password: password,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Api-Key': apikey,
-                    },
-                }
+                { username, password },
+                { headers: { 'Content-Type': 'application/json', 'X-Api-Key': apiKey } }
             );
 
-            const { jwt: serverToken } = response.data;
-
-            console.log('Server Token:', serverToken);
-
-            setUser((prevUser) => {
-                // Ensure prevUser is an object
-                if (prevUser && typeof prevUser === 'object') {
-                    return { ...prevUser, loggedIn: true }; // Add loggedIn property or other user properties
-                }
-                return { loggedIn: true }; // Create a new user object if prevUser is not defined or not an object
-            });
-
-            // Save the user data and token to localStorage
-            localStorage.setItem('user', JSON.stringify({ loggedIn: true }));
-
-            // Set the authorization header for axios
+            const serverToken = response.data.jwt;
+            setUser({ loggedIn: true });
+            saveUserToLocalStorage({ loggedIn: true });
             axios.defaults.headers.common['Authorization'] = `Bearer ${serverToken}`;
-
-            // Set the token state
             setToken(serverToken);
+            localStorage.setItem('token', serverToken);
 
             return serverToken;
         } catch (error) {

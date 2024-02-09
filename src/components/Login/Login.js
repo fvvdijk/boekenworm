@@ -7,7 +7,7 @@ function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const { login, user } = useAuth(); // Assuming you have user in your AuthContext
+    const { login, user } = useAuth();
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -29,13 +29,10 @@ function LoginForm() {
 
             const { user: loggedInUser, token } = await login(username, password);
 
-            // Handle successful login
             console.log('Login successful! User:', loggedInUser, 'Token:', token);
 
-            // Redirect to UserPage upon successful login
             navigate("/UserPage");
         } catch (error) {
-            // Handle login error
             console.error('Login error:', error.message);
             setErrorMessage('Oeps, probeer het nog eens.');
         }
@@ -58,7 +55,7 @@ function LoginForm() {
                         className="form__input"
                         type="text"
                         value={username}
-                        onChange={(e) => handleInputChange(e)}
+                        onChange={handleInputChange}
                         id="username"
                         placeholder="Your Username"
                         onKeyPress={handleEnterKeyPress}
@@ -73,7 +70,7 @@ function LoginForm() {
                         type="password"
                         id="password"
                         value={password}
-                        onChange={(e) => handleInputChange(e)}
+                        onChange={handleInputChange}
                         placeholder="Password"
                         onKeyPress={handleEnterKeyPress}
                     />
@@ -83,7 +80,6 @@ function LoginForm() {
                 <button onClick={handleLogin} type="button" className="btn">
                     Login
                 </button>
-                {/* Display error message */}
                 {errorMessage && (
                     <div className={styles['error-message-container']}>
                         <p className={styles['error-message']}>{errorMessage}</p>

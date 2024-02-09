@@ -16,21 +16,27 @@ function UserPage() {
         setBookOptions(options);
     };
 
+    const renderBookOptions = () => {
+        if (bookOptions.length > 0) {
+            return (
+                <div>
+                    <h2>Result:</h2>
+                    <FiveBooksPage bookOptions={bookOptions} />
+                    <RandomBookPage bookOptions={bookOptions} />
+                </div>
+            );
+        }
+        return null;
+    };
+
     return (
         <div className={styles.userpage}>
             <h1>Je bent ingelogd!</h1>
             <div className={styles['personality-tests']}>
-                {/* Pass handleBookOptions as a prop to the Questionnaire component */}
                 <Questionnaire onBookOptionsChange={handleBookOptions} />
                 <QuestionnaireTwo onBookOptionsChange={handleBookOptions} />
 
-                {bookOptions.length > 0 && (
-                    <div>
-                        <h2>Result:</h2>
-                        <FiveBooksPage bookOptions={bookOptions} />
-                        <RandomBookPage bookOptions={bookOptions} />
-                    </div>
-                )}
+                {renderBookOptions()}
             </div>
         </div>
     );

@@ -8,7 +8,7 @@ import RandomBookPage from "./pages/Willekeurig-boek/RandomBookPage";
 import {Routes, Route} from 'react-router-dom';
 import {AuthProvider} from "./components/Context/AuthContext";
 import Navigation from "./components/Navigation/Navigation";
-import {ProtectedRoute} from "./components/ProtectedRoute";
+import {ProtectedRoute} from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
 

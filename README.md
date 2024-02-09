@@ -1,50 +1,37 @@
 # Boekenworm
 
-Korte beschrijving of tagline van je project.
+Boekenworm is een webapplicatie die boekenliefhebbers helpt bij het ontdekken van boeken op basis van hun persoonlijkheid en interesse. 
+Door middel van een intuïtieve quiz worden gebruikers begeleid bij het bepalen van hun voorkeuren, 
+waarna de applicatie relevante boekaanbevelingen geeft.
 
-## Inhoudsopgave
+## Benodigdheden
 
-- [Overzicht](#overzicht)
-- [Installatie](#installatie)
-- [Gebruik](#gebruik)
-- [Bijdragen](#bijdragen)
-- [Licentie](#licentie)
+Om de Boekenworm-applicatie lokaal te kunnen uitvoeren, heb je het volgende nodig:
 
-## Overzicht
-
-Beschrijf hier kort wat je project doet, waarom het nuttig is en de belangrijkste functies.
-
-### Technologieën gebruikt
-
-- **React**: Versie X.X
-- **Andere afhankelijkheden**: Vermeld hier andere belangrijke technologieën die je hebt gebruikt.
+- Node.js en npm geïnstalleerd op je computer.
+- De backend server is https://novi.datavortex.nl/ en de api key is: "boekenworm:byfOaBewbNje38gcGoHw"
 
 ## Installatie
 
-1. Clone het project: `git clone https://github.com/jouw-gebruikersnaam/jouw-project.git`
-2. Navigeer naar de projectmap: `cd jouw-project`
+Volg deze stappen om de Boekenworm-applicatie lokaal te installeren en uit te voeren:
+
+1. Clone het project: `git clone https://github.com/fvvdijk/boekenworm.git`
+2. Navigeer naar de projectmap: `cd boekenworm`
 3. Installeer de afhankelijkheden: `npm install`
 
 ## Gebruik
 
 1. Start de ontwikkelserver: `npm start`
-2. Open de applicatie in je webbrowser: [http://localhost:3000](http://localhost:3000)
+2. Open de applicatie in je webbrowser: [http://localhost:3000]
 
-### Scripts
+### Beschikbare scripts
 
 - `npm start`: Start de ontwikkelserver.
 - `npm build`: Bouwt de applicatie voor productie.
 
-## Bijdragen
+## Inloggegevens
 
-Als je wilt bijdragen aan dit project, volg dan de onderstaande stappen:
+Je kunt inloggen met de volgende gegevens:
 
-1. Fork het project.
-2. Maak een nieuwe branch: `git checkout -b feature/naam-van-je-feature`
-3. Maak je wijzigingen en commit ze: `git commit -m 'Voeg nieuwe functie toe'`
-4. Duw naar de branch: `git push origin feature/naam-van-je-feature`
-5. Maak een pull-aanvraag aan.
-
-## Licentie
-
-Dit project is gelicentieerd onder de [Naam van de licentie]. Zie het `LICENSE.md`-bestand voor details.
+- Gebruikersnaam: Testuser123
+- Wachtwoord: Hello123

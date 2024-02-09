@@ -20,8 +20,6 @@ function HomePage() {
                 <LoginForm />
                 <Button label="Registreren" to="/RegisterPage" />
             </div>
-
-            <p>Hello123 FabianDijk</p>
         </div>
     );
 }
