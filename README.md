@@ -1,5 +1,12 @@
 # Boekenworm
 
+# Inhoud:
+1. [Benodigdheden]
+2. [Installatie] 
+3. [Gebruik]
+4. [Beschikbare scripts]
+5. [Inloggegevens]
+
 Boekenworm is een webapplicatie die boekenliefhebbers helpt bij het ontdekken van boeken op basis van hun persoonlijkheid en interesse. 
 Door middel van een intuïtieve quiz worden gebruikers begeleid bij het bepalen van hun voorkeuren, 
 waarna de applicatie relevante boekaanbevelingen geeft.
