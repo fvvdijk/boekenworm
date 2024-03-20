@@ -9,11 +9,12 @@ const extractOLID = (key) => {
 const renderSearchResults = (searchResults) => {
     if (searchResults && searchResults.docs.length > 0) {
         return (
-            <div>
+            <article>
                 <ul>
                     {searchResults.docs.slice(0, 30).map((book) => (
                         <li key={book.key} className={styles['list-item']}>
-                            <img
+                            <figure>
+                                <img
                                 src={`https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`}
                                 alt={`${book.title} cover`}
                                 style={{
@@ -23,6 +24,7 @@ const renderSearchResults = (searchResults) => {
                                 }}
                                 onError={(e) => console.error("Image loading error:", e)}
                             />
+                            </figure>
                             <h3>{book.title}</h3>
                             <p>
                                 {book.author_name} {" "}
@@ -33,13 +35,13 @@ const renderSearchResults = (searchResults) => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </article>
         );
     }
     return (
-        <div>
+        <article>
             <p>Er zijn nu nog geen resultaten, ga naar de searchbar op de homepage</p>
-        </div>
+        </article>
     );
 };
 
@@ -48,11 +50,11 @@ const ListPage = () => {
     const searchResults = location.state && location.state.searchResults;
 
     return (
-        <div className={styles['list-page']}>
+        <section className={styles['list-page']}>
             <h1>Zoekresultaten</h1>
 
             {renderSearchResults(searchResults)}
-        </div>
+        </section>
     );
 };
 

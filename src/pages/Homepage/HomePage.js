@@ -10,17 +10,17 @@ function HomePage() {
     console.log(user);
 
     return (
-        <div className={styles['homepage-container']}>
+        <section className={styles['homepage-container']}>
             <h1>Welkom op Boekenworm.nl!</h1>
-            <h2>De beste online boekenkast van Nederland</h2>
+            <h3>De beste online boekenkast van Nederland</h3>
 
             <SearchBar />
 
-            <div className={styles['centered-content']}>
+            <article className={styles['centered-content']}>
                 <LoginForm />
                 <Button label="Registreren" to="/RegisterPage" />
-            </div>
-        </div>
+            </article>
+        </section>
     );
 }
 

@@ -9,21 +9,30 @@ import {Routes, Route} from 'react-router-dom';
 import {AuthProvider} from "./components/Context/AuthContext";
 import Navigation from "./components/Navigation/Navigation";
 import {ProtectedRoute} from "./components/ProtectedRoute/ProtectedRoute";
+import Logout from "./components/Logout/Logout";
 
 function App() {
 
     return (
         <>
             <AuthProvider>
-                <Navigation/>
-                <Routes>
-                <Route path="/" element={<HomePage/>}/>
-                <Route path="/ListPage" element={<ListPage/>}/>
-                <Route path="/RegisterPage" element={<RegisterPage/>}/>
-                <Route path="/FiveBooksPage" element={<ProtectedRoute><FiveBooksPage/></ProtectedRoute>}/>
-                <Route path="/RandomBookPage" element={<ProtectedRoute><RandomBookPage/></ProtectedRoute>}/>
+                <header />
+                <nav>
+                    <Navigation/>
+                </nav>
+                <main>
+                    <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/ListPage" element={<ListPage/>}/>
+                    <Route path="/RegisterPage" element={<RegisterPage/>}/>
+                    <Route path="/FiveBooksPage" element={<ProtectedRoute><FiveBooksPage/></ProtectedRoute>}/>
+                    <Route path="/RandomBookPage" element={<ProtectedRoute><RandomBookPage/></ProtectedRoute>}/>
                     <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
-                    </Routes>
+                </Routes>
+                </main>
+                <footer>
+                    <Logout/>
+                </footer>
             </AuthProvider>
         </>
     )

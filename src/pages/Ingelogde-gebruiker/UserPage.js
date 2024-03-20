@@ -19,18 +19,18 @@ function UserPage() {
     const renderBookOptions = () => {
         if (bookOptions.length > 0) {
             return (
-                <div>
+                <article>
                     <h2>Result:</h2>
                     <FiveBooksPage bookOptions={bookOptions} />
                     <RandomBookPage bookOptions={bookOptions} />
-                </div>
+                </article>
             );
         }
         return null;
     };
 
     return (
-        <div className={styles.userpage}>
+        <article className={styles.userpage}>
             <h1>Je bent ingelogd!</h1>
             <div className={styles['personality-tests']}>
                 <Questionnaire onBookOptionsChange={handleBookOptions} />
@@ -38,7 +38,7 @@ function UserPage() {
 
                 {renderBookOptions()}
             </div>
-        </div>
+        </article>
     );
 }
 
