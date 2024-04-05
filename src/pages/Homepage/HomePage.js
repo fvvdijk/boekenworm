@@ -8,7 +8,6 @@ import {useNavigate} from "react-router-dom";
 
 function HomePage() {
     const user = useAuth();
-    console.log(user);
     const navigate = useNavigate();
 
     const navigateTo = () => {
@@ -24,7 +23,7 @@ function HomePage() {
 
             <article className={styles['centered-content']}>
                 <LoginForm />
-                <Button onClick={navigateTo} label="Registreren" to="/RegisterPage" />
+                <Button onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}/>
             </article>
         </section>
     );

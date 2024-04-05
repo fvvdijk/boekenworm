@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Questionnaire = (props) => {
-    console.log("sdfdsfdsfsd", props);
     const initialAnswers = {
         personality: "",
         interest: "",

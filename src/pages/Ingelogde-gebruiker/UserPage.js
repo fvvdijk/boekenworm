@@ -7,7 +7,6 @@ import styles from "./UserPage.module.css";
 
 function UserPage() {
     const user = useAuth();
-    console.log('user:', user);
     const randomOffset = Math.floor(Math.random() * 100);
     const [bookOptions, setBookOptions] = useState([]);
 

@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Book.module.css"
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import axios from "axios";
 
 const BookDetails = () => {
     const { id, author } = useParams();
+    const navigate = useNavigate();
     const [book, setBook] = useState(null);
     const getBookDetails = async () => {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/${id}.json`);
-        setBook(response.data);
+        try {
+            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/${id}.json`).catch((err)=>{return navigate("/")});
+            setBook(response.data);
+        } catch (e) {
+            navigate("/");
+        }
+
     }
     useEffect(() => {
         getBookDetails();

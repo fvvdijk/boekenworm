@@ -29,8 +29,6 @@ function LoginForm() {
 
             const { user: loggedInUser, token } = await login(username, password);
 
-            console.log('Login successful! User:', loggedInUser, 'Token:', token);
-
             navigate("/UserPage");
         } catch (error) {
             console.error('Login error:', error.message);
