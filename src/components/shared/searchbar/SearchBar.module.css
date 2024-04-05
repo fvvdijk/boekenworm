@@ -1,0 +1,24 @@
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+.searchbar input {
+    width: 300px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.searchbar button {
+    width: 100px; /* Adjust the width as needed */
+    height: 46px; /* Adjust the height as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.noResultsMessage {
+    color: red; /* Change the color to your preference */
+    font-size: 14px;
+    margin-top: 8px;
+}

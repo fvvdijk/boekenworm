@@ -1,13 +1,19 @@
 import React from "react";
-import SearchBar from "../../components/Searchbar/SearchBar";
-import LoginForm from "../../components/Login/Login";
-import Button from "../../components/Button/Button";
-import { useAuth } from "../../components/Context/AuthContext";
-import styles from './Homepage.module.css';
+import SearchBar from "../../components/shared/searchbar/SearchBar";
+import LoginForm from "../../components/Login/LoginForm";
+import Button from "../../components/shared/button/Button";
+import { useAuth } from "../../context/AuthContext";
+import styles from './HomePage.module.css';
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
     const user = useAuth();
     console.log(user);
+    const navigate = useNavigate();
+
+    const navigateTo = () => {
+        navigate("/RegisterPage");
+    };
 
     return (
         <section className={styles['homepage-container']}>
@@ -18,7 +24,7 @@ function HomePage() {
 
             <article className={styles['centered-content']}>
                 <LoginForm />
-                <Button label="Registreren" to="/RegisterPage" />
+                <Button onClick={navigateTo} label="Registreren" to="/RegisterPage" />
             </article>
         </section>
     );

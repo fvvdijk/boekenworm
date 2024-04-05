@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
-import styles from "../Searchbar/SearchBar.module.css";
+import { useAuth } from '../../context/AuthContext';
+import styles from "../shared/searchbar/SearchBar.module.css";
 
 const Logout = () => {
     const { user, logout } = useAuth();
