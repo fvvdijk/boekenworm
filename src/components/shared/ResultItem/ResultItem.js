@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../resultsList/ResultsList.module.css";
+import styles from "./ResultItem.module.css";
 
 const extractOLID = (key) => {
     return key.replace("/works/", "");
