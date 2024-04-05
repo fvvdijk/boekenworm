@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../../services/Context/AuthContext';
 import styles from './Navigation.module.css';
 
 function Navigation() {

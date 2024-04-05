@@ -6,9 +6,9 @@ import FiveBooksPage from "./pages/5-boeken/5-boeken";
 import ListPage from "./pages/Lijstpagina/Lijstpagina";
 import RandomBookPage from "./pages/Willekeurig-boek/RandomBookPage";
 import {Routes, Route} from 'react-router-dom';
-import {AuthProvider} from "./components/Context/AuthContext";
-import Navigation from "./components/Navigation/Navigation";
-import {ProtectedRoute} from "./components/ProtectedRoute/ProtectedRoute";
+import {AuthProvider} from "./services/Context/AuthContext";
+import Navigation from "./layout/Navigation/Navigation";
+import {ProtectedRoute} from "./helpers/ProtectedRoute/ProtectedRoute";
 import Logout from "./components/Logout/Logout";
 
 function App() {
