@@ -1,11 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import styles from "./Lijstpagina.module.css";
 
 const extractOLID = (key) => {
-    return key.replace('/works/', '');
+    return key.replace("/works/", "")
 };
-
 const renderSearchResults = (searchResults) => {
     if (searchResults && searchResults.docs.length > 0) {
         return (
@@ -28,9 +27,9 @@ const renderSearchResults = (searchResults) => {
                             <h3>{book.title}</h3>
                             <p>
                                 {book.author_name} {" "}
-                                <a href={`https://openlibrary.org/books/${extractOLID(book.key)}`} target="_blank" rel="noopener noreferrer">
+                                <Link to={`/bookDetails/${book.author_name}/${extractOLID(book?.key)}`} id={extractOLID(book?.key)}>
                                     Extra info
-                                </a>
+                                </Link>
                             </p>
                         </li>
                     ))}

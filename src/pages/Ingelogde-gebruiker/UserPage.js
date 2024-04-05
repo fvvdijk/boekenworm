@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useAuth } from "../../services/Context/AuthContext";
 import Questionnaire from "../../components/Filtersysteem/Questionnaire";
 import FiveBooksPage from "../5-boeken/5-boeken";
@@ -9,16 +9,19 @@ function UserPage() {
     const user = useAuth();
     console.log('user:', user);
     const randomOffset = Math.floor(Math.random() * 100);
-
+    const [bookOptions, setBookOptions] = useState([]);
 
     const renderBookOptions = () => {
+        if (bookOptions.length > 0) {
             return (
                 <article>
                     <h2>Result:</h2>
-                    <FiveBooksPage />
-                    <RandomBookPage />
+                    <FiveBooksPage/>
+                    <RandomBookPage/>
                 </article>
             );
+        }
+        return null;
     };
 
     return (

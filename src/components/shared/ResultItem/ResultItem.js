@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ResultItem.module.css";
+import {Link} from "react-router-dom";
 
 const extractOLID = (key) => {
     return key.replace("/works/", "");
@@ -20,9 +21,9 @@ const ResultItem = ({ work }) => {
             />
             <h3>{title}</h3>
             <p>{author}</p>
-            <a href={`https://openlibrary.org/books/${extractOLID(key)}`} target="_blank" rel="noopener noreferrer">
+            <Link to={`/bookDetails/${author}/${extractOLID(key)}`} id={extractOLID(key)}>
                 Extra info
-            </a>
+            </Link>        
         </li>
     );
 };

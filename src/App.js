@@ -10,6 +10,7 @@ import {AuthProvider} from "./services/Context/AuthContext";
 import Navigation from "./layout/Navigation/Navigation";
 import {ProtectedRoute} from "./helpers/ProtectedRoute/ProtectedRoute";
 import Logout from "./components/Logout/Logout";
+import BookDetails from "./pages/bookdetails/Book";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/FiveBooksPage" element={<ProtectedRoute><FiveBooksPage/></ProtectedRoute>}/>
                     <Route path="/RandomBookPage" element={<ProtectedRoute><RandomBookPage/></ProtectedRoute>}/>
                     <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
+                    <Route path="/bookDetails/:author/:id" element={<BookDetails/>}/>
                 </Routes>
                 </main>
                 <footer>
