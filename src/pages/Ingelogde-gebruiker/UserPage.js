@@ -1,44 +1,38 @@
-import React, { useState } from "react";
-import { useAuth } from "../../components/Context/AuthContext";
-import Questionnaire from "../../components/Filtersysteem/FilterSystem";
+import React, {useState} from "react";
+import { useAuth } from "../../services/Context/AuthContext";
+import Questionnaire from "../../components/Filtersysteem/Questionnaire";
 import FiveBooksPage from "../5-boeken/5-boeken";
 import RandomBookPage from "../Willekeurig-boek/RandomBookPage";
 import styles from "./UserPage.module.css";
-import QuestionnaireTwo from "../../components/Filtersysteem/FilterSystem2";
 
 function UserPage() {
     const user = useAuth();
-    console.log('user:', user);
-
+    const randomOffset = Math.floor(Math.random() * 100);
     const [bookOptions, setBookOptions] = useState([]);
-
-    const handleBookOptions = (options) => {
-        setBookOptions(options);
-    };
 
     const renderBookOptions = () => {
         if (bookOptions.length > 0) {
             return (
-                <div>
+                <article>
                     <h2>Result:</h2>
-                    <FiveBooksPage bookOptions={bookOptions} />
-                    <RandomBookPage bookOptions={bookOptions} />
-                </div>
+                    <FiveBooksPage/>
+                    <RandomBookPage/>
+                </article>
             );
         }
         return null;
     };
 
     return (
-        <div className={styles.userpage}>
+        <article className={styles.userpage}>
             <h1>Je bent ingelogd!</h1>
             <div className={styles['personality-tests']}>
-                <Questionnaire onBookOptionsChange={handleBookOptions} />
-                <QuestionnaireTwo onBookOptionsChange={handleBookOptions} />
+                <Questionnaire limit={5}/>
+                <Questionnaire randomOffset={randomOffset} limit={1} />
 
                 {renderBookOptions()}
             </div>
-        </div>
+        </article>
     );
 }
 

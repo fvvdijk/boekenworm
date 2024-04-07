@@ -8,14 +8,14 @@ const RandomBookPage = () => {
     const { works } = location.state || {};
 
     return (
-        <div className={styles['random-book']}>
+        <section className={styles['random-book']}>
             <h1>Willekeurig Boek</h1>
             {works ? (
                 <ResultsList works={works} />
             ) : (
                 <p>Nog geen resultaten, ga naar de userpage</p>
             )}
-        </div>
+        </section>
     );
 };
 

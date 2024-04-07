@@ -7,14 +7,14 @@ const FiveBooksPage = () => {
     const { works } = location.state || {};
 
     return (
-        <div className={styles['five-books']}>
+        <section className={styles['five-books']}>
             <h1>5 boeken:</h1>
             {works ? (
                 <ResultsList works={works} />
             ) : (
                 <p>Nog geen resultaten, ga naar de userpage</p>
             )}
-        </div>
+        </section>
     );
 };
 

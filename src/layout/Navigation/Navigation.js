@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../../services/Context/AuthContext';
 import styles from './Navigation.module.css';
-import Logout from '../Logout/Logout';
 
 function Navigation() {
     const { user } = useAuth();
@@ -17,9 +16,6 @@ function Navigation() {
             </li>
             <li>
                 <NavLink to="/RandomBookPage">RandomBookPage</NavLink>
-            </li>
-            <li>
-                <Logout />
             </li>
             <li>
                 <p>Je bent ingelogd!</p>

@@ -1,26 +1,31 @@
 import React from "react";
-import SearchBar from "../../components/Searchbar/SearchBar";
+import SearchBar from "../../components/shared/searchbar/SearchBar";
 import LoginForm from "../../components/Login/Login";
-import Button from "../../components/Button/Button";
-import { useAuth } from "../../components/Context/AuthContext";
+import Button from "../../components/shared/button/Button";
+import { useAuth } from "../../services/Context/AuthContext";
 import styles from './Homepage.module.css';
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
     const user = useAuth();
-    console.log(user);
+    const navigate = useNavigate();
+
+    const navigateTo = () => {
+        navigate("/RegisterPage");
+    };
 
     return (
-        <div className={styles['homepage-container']}>
+        <section className={styles['homepage-container']}>
             <h1>Welkom op Boekenworm.nl!</h1>
-            <h2>De beste online boekenkast van Nederland</h2>
+            <h3>De beste online boekenkast van Nederland</h3>
 
             <SearchBar />
 
-            <div className={styles['centered-content']}>
+            <article className={styles['centered-content']}>
                 <LoginForm />
-                <Button label="Registreren" to="/RegisterPage" />
-            </div>
-        </div>
+                <Button onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}/>
+            </article>
+        </section>
     );
 }
 

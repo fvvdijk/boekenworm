@@ -4,8 +4,11 @@ import "./Account-aanmaken.css"
 
 function RegisterPage() {
     return (
-        <div><RegistrationForm/>
-        </div>
+        <section>
+            <article>
+                <RegistrationForm/>
+            </article>
+        </section>
 
     )
 }

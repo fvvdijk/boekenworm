@@ -39,7 +39,6 @@ function RegistrationForm() {
                     },
                 }
             );
-            console.log(response);
             setSuccessMessage('Registration successful!');
         } catch (error) {
             console.error(error.response.data);

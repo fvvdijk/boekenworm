@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
+import  {DNA} from "react-loader-spinner";
 
 function SearchBar() {
+    const [loading, setLoading] = useState(false);
     const [query, setQuery] = useState('');
     const [noResults, setNoResults] = useState(false); // State to track no results
     const navigate = useNavigate();
 
     async function searchBooks(query) {
         try {
+            setLoading(true);
             const response = await fetch(`https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`);
             const data = await response.json();
-
+            setLoading(false);
             return { success: response.ok, data };
         } catch (error) {
             console.error('Error fetching data from the API:', error.message);
+            setLoading(false);
             return { success: false, error };
         }
     }
@@ -26,8 +30,6 @@ function SearchBar() {
             const { success, data } = await searchBooks(query);
 
             if (success) {
-                console.log('API Response:', data);
-
                 if (data.numFound === 0) {
                     setNoResults(true);
                 } else {
@@ -43,7 +45,9 @@ function SearchBar() {
             setNoResults(true); // Set noResults state to true
         }
     }
-
+    if (loading) {
+        return <DNA type="Puff" color="#00BFFF" height={100} width={100} />;;
+    }
     return (
         <div>
             <form className={styles.searchbar} onSubmit={onFormSubmit}>

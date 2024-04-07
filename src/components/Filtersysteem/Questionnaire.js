@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const QuestionnaireTwo = () => {
+const Questionnaire = (props) => {
     const initialAnswers = {
         personality: "",
         interest: "",
@@ -24,17 +24,25 @@ const QuestionnaireTwo = () => {
         );
     };
 
-    const searchApi = async (category) => {
+    const searchApi = async (category, props) => {
         try {
-            const randomOffset = Math.floor(Math.random() * 100);
+            if (props?.randomOffset){
+                const response = await fetch(
+                    `https://openlibrary.org/subjects/${category}.json?&limit=${props?.limit}&offset=${props?.randomOffset}`
+                );
+                const data = await response.json();
+                setApiResult(data);
+                setApiCalled(true);
+            }
+            else {
+                const response = await fetch(
+                    `https://openlibrary.org/subjects/${category}.json?&limit=${props?.limit}`
+                );
+                const data = await response.json();
+                setApiResult(data);
+                setApiCalled(true);
+            }
 
-            const response = await fetch(
-                `https://openlibrary.org/subjects/${category}.json?&limit=1&offset=${randomOffset}`
-            );
-
-            const data = await response.json();
-            setApiResult(data);
-            setApiCalled(true);
         } catch (error) {
             console.error("Error fetching API:", error);
         }
@@ -54,7 +62,7 @@ const QuestionnaireTwo = () => {
         );
 
         if (condition && !apiCalled) {
-            searchApi(condition.category);
+            searchApi(condition.category, props);
         }
 
         return condition ? `Je houdt van ${condition.category}!` : "No result";
@@ -63,7 +71,7 @@ const QuestionnaireTwo = () => {
     useEffect(() => {
         if (currentQuestion === "result" && apiResult && apiResult.works) {
             const timeoutId = setTimeout(() => {
-                navigate("/RandomBookPage", { state: { works: apiResult.works } });
+                navigate("/FiveBooksPage", { state: { works: apiResult.works } });
             }, 3000);
 
             return () => clearTimeout(timeoutId);
@@ -79,8 +87,17 @@ const QuestionnaireTwo = () => {
 
     return (
         <div>
-            <h2>Boekentest 2</h2>
-            <h3>Bij deze test krijg je een random boek dat past bij jouw persoonlijkheid en interesse</h3>
+            {
+                props?.randomOffset ?
+                    <>
+                        <h2>Boekentest 2</h2>
+                        <h3>Bij deze test krijg je een random boek dat past bij jouw persoonlijkheid en interesse</h3>
+                    </> :
+                    <>
+                        <h2>Boekentest 1</h2>
+                        <h3>Bij deze test krijg je 5 boeken die passen bij jouw persoonlijkheid en interesse</h3>
+                    </>
+            }
             {currentQuestion === "personality" && (
                 <div>
                     <p>Question 1: Ben je een introvert of een extravert?</p>
@@ -113,4 +130,4 @@ const QuestionnaireTwo = () => {
     );
 };
 
-export default QuestionnaireTwo;
+export default Questionnaire;

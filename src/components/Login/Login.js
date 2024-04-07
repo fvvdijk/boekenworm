@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../../services/Context/AuthContext';
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 
@@ -28,8 +28,6 @@ function LoginForm() {
             }
 
             const { user: loggedInUser, token } = await login(username, password);
-
-            console.log('Login successful! User:', loggedInUser, 'Token:', token);
 
             navigate("/UserPage");
         } catch (error) {
