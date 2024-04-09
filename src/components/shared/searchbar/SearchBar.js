@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import  {DNA} from "react-loader-spinner";
+import axios from 'axios';
+
 
 function SearchBar() {
     const [loading, setLoading] = useState(false);
@@ -12,10 +14,9 @@ function SearchBar() {
     async function searchBooks(query) {
         try {
             setLoading(true);
-            const response = await fetch(`https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`);
-            const data = await response.json();
+            const response = await axios.get(`https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`);
             setLoading(false);
-            return { success: response.ok, data };
+            return { success: response.status === 200, data: response.data };
         } catch (error) {
             console.error('Error fetching data from the API:', error.message);
             setLoading(false);
