@@ -2,8 +2,8 @@ import React from "react";
 import SearchBar from "../../components/shared/searchbar/SearchBar";
 import LoginForm from "../../components/Login/Login";
 import Button from "../../components/shared/button/Button";
-import { useAuth } from "../../services/Context/AuthContext";
-import styles from './Homepage.module.css';
+import { useAuth } from "../../helpers/context/AuthContext";
+import styles from './HomePage.module.css';
 import {useNavigate} from "react-router-dom";
 
 function HomePage() {

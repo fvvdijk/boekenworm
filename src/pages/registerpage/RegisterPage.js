@@ -1,6 +1,6 @@
 import React from "react";
 import RegistrationForm from "../../components/Register/Register";
-import "./Account-aanmaken.css"
+import "./RegisterPage.module.css"
 
 function RegisterPage() {
     return (

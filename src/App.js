@@ -1,16 +1,16 @@
 import './App.css';
-import HomePage from "./pages/Homepage/HomePage";
-import RegisterPage from "./pages/Account-aanmaken/Account-aanmaken";
-import UserPage from "./pages/Ingelogde-gebruiker/UserPage";
-import FiveBooksPage from "./pages/5-boeken/5-boeken";
-import ListPage from "./pages/Lijstpagina/Lijstpagina";
-import RandomBookPage from "./pages/Willekeurig-boek/RandomBookPage";
+import HomePage from "./pages/homepage/HomePage";
+import RegisterPage from "./pages/registerpage/RegisterPage";
+import UserPage from "./pages/userpage/UserPage";
+import FiveBooksPage from "./pages/fivebookspage/FiveBooksPage";
+import ListPage from "./pages/listpage/ListPage";
+import RandomBookPage from "./pages/randombookpage/RandomBookPage";
 import {Routes, Route} from 'react-router-dom';
-import {AuthProvider} from "./services/Context/AuthContext";
+import {AuthProvider} from "./helpers/context/AuthContext";
 import Navigation from "./layout/Navigation/Navigation";
-import {ProtectedRoute} from "./helpers/ProtectedRoute/ProtectedRoute";
-import Logout from "./components/Logout/Logout";
-import BookDetails from "./pages/bookdetails/Book";
+import {ProtectedRoute} from "./helpers/protectedroute/ProtectedRoute";
+import Logout from "./components/logout/Logout";
+import BookDetails from "./pages/bookdetailspage/BookDetails";
 
 function App() {
 

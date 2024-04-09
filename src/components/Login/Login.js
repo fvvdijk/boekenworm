@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../services/Context/AuthContext';
+import { useAuth } from '../../helpers/context/AuthContext';
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
+import Button from "../shared/button/Button";
 
 function LoginForm() {
     const [username, setUsername] = useState('');
@@ -75,9 +76,9 @@ function LoginForm() {
                 </div>
             </div>
             <div className="footer">
-                <button onClick={handleLogin} type="button" className="btn">
+                <Button onClick={handleLogin} type="button" className="btn">
                     Login
-                </button>
+                </Button>
                 {errorMessage && (
                     <div className={styles['error-message-container']}>
                         <p className={styles['error-message']}>{errorMessage}</p>

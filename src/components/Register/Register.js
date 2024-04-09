@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './Register.module.css';
+import Button from "../shared/button/Button";
+import {useNavigate} from "react-router-dom";
 
 function RegistrationForm() {
     const [name, setName] = useState('');
@@ -8,6 +10,7 @@ function RegistrationForm() {
     const [email, setEmail] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
     const apikey = 'boekenworm:byfOaBewbNje38gcGoHw';
 
@@ -40,6 +43,9 @@ function RegistrationForm() {
                 }
             );
             setSuccessMessage('Registration successful!');
+            setTimeout(()=>{
+                navigate("/");
+            },3000);
         } catch (error) {
             console.error(error.response.data);
             setErrorMessage(error.response.data || 'Registration failed');
@@ -101,9 +107,9 @@ function RegistrationForm() {
                         </div>
                     </div>
                     <div className="footer">
-                        <button type="button" onClick={handleSubmit} className="btn">
+                        <Button type="button" onClick={handleSubmit} className="btn">
                             Register
-                        </button>
+                        </Button>
                     </div>
                     {successMessage && (
                         <div className={styles['success-message-container']}>

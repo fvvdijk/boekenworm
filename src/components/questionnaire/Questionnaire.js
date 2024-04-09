@@ -45,6 +45,7 @@ const Questionnaire = (props) => {
 
         } catch (error) {
             console.error("Error fetching API:", error);
+            alert("Error fetching API:");
         }
     };
 

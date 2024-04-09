@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, useLocation} from "react-router-dom";
-import styles from "./Lijstpagina.module.css";
+import styles from "./ListPage.module.css";
 
 const extractOLID = (key) => {
     return key.replace("/works/", "")

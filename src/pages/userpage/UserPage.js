@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { useAuth } from "../../services/Context/AuthContext";
-import Questionnaire from "../../components/Filtersysteem/Questionnaire";
-import FiveBooksPage from "../5-boeken/5-boeken";
-import RandomBookPage from "../Willekeurig-boek/RandomBookPage";
+import { useAuth } from "../../helpers/context/AuthContext";
+import Questionnaire from "../../components/questionnaire/Questionnaire";
+import FiveBooksPage from "../fivebookspage/FiveBooksPage";
+import RandomBookPage from "../randombookpage/RandomBookPage";
 import styles from "./UserPage.module.css";
 
 function UserPage() {
