@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const Questionnaire = (props) => {
     const initialAnswers = {
@@ -26,23 +27,13 @@ const Questionnaire = (props) => {
 
     const searchApi = async (category, props) => {
         try {
+            let url = `https://openlibrary.org/subjects/${category}.json?&limit=${props?.limit}`;
             if (props?.randomOffset){
-                const response = await fetch(
-                    `https://openlibrary.org/subjects/${category}.json?&limit=${props?.limit}&offset=${props?.randomOffset}`
-                );
-                const data = await response.json();
-                setApiResult(data);
-                setApiCalled(true);
+                url += `&offset=${props?.randomOffset}`;
             }
-            else {
-                const response = await fetch(
-                    `https://openlibrary.org/subjects/${category}.json?&limit=${props?.limit}`
-                );
-                const data = await response.json();
-                setApiResult(data);
-                setApiCalled(true);
-            }
-
+            const response = await axios.get(url);
+            setApiResult(response.data);
+            setApiCalled(true);
         } catch (error) {
             console.error("Error fetching API:", error);
             alert("Error fetching API:");
