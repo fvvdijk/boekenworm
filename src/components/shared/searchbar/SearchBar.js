@@ -3,6 +3,7 @@ import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import  {DNA} from "react-loader-spinner";
 import {useAuth} from "../../../helpers/context/ApiContext";
+import Button from "../button/Button";
 
 
 function SearchBar() {
@@ -53,7 +54,7 @@ function SearchBar() {
     return (
         <div>
             <form className={styles.searchbar} onSubmit={onFormSubmit}>
-                <input
+                <input className={styles['searchbar-input']}
                     type="text"
                     name="search"
                     value={query}
@@ -61,9 +62,9 @@ function SearchBar() {
                     placeholder="Zoek op auteur, boektitel of op isbn"
                 />
 
-                <button type="submit">
+                <Button type="submit" className={styles['searchbar-button']}>
                     Zoek
-                </button>
+                </Button>
             </form>
             {noResults && (
                 <p className={styles.noResultsMessage}>Geen resultaten gevonden, probeer het opnieuw.</p>

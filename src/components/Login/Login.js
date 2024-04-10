@@ -76,7 +76,7 @@ function LoginForm() {
                 </div>
             </div>
             <div className="footer">
-                <Button onClick={handleLogin} type="button" className="btn">
+                <Button onClick={handleLogin} type="submit" className="btn">
                     Login
                 </Button>
                 {errorMessage && (

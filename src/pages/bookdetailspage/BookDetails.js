@@ -63,7 +63,7 @@ const BookDetails = () => {
 
     return (
         <div className={styles.bookDetails}>
-            {!corsAllowed &&  <Button onClick={getPermission} children={"Enable Cors"}/>}
+            {!corsAllowed &&  <Button type="button" onClick={getPermission} children={"Enable Cors"}/>}
             {alert.visible && (
                 <Alert
                     message={alert.message}

@@ -3,6 +3,6 @@
     font-weight: 500;
     flex-basis: auto;
     align-content: center;
-    background-color: gray;
-    width: auto
+    width: auto;
+    background-color: #ccc;
 }

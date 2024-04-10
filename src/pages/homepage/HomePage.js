@@ -2,12 +2,10 @@ import React from "react";
 import SearchBar from "../../components/shared/searchbar/SearchBar";
 import LoginForm from "../../components/Login/Login";
 import Button from "../../components/shared/button/Button";
-import { useAuth } from "../../helpers/context/ApiContext";
 import styles from './HomePage.module.css';
 import {useNavigate} from "react-router-dom";
 
 function HomePage() {
-    const user = useAuth();
     const navigate = useNavigate();
 
     const navigateTo = () => {
@@ -23,8 +21,10 @@ function HomePage() {
             <hr />
             <article className={styles['centered-content']}>
                 <LoginForm />
-                <hr />
-                <Button onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}/>
+                <p>Nog geen account? klik dan op: </p>
+                <Button type="button" onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}>
+                    Registreren
+                </Button>
             </article>
             <article>
                 <p>https://cors-anywhere.herokuapp.com/corsdemo</p>

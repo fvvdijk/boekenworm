@@ -2,9 +2,7 @@ import './App.module.css';
 import HomePage from "./pages/homepage/HomePage";
 import RegisterPage from "./pages/registerpage/RegisterPage";
 import UserPage from "./pages/userpage/UserPage";
-import FiveBooksPage from "./pages/quizresultspage/QuizResultsPage";
 import ListPage from "./pages/listpage/ListPage";
-import RandomBookPage from "./pages/randombookpage/RandomBookPage";
 import {Routes, Route} from 'react-router-dom';
 import {AuthProvider} from "./helpers/context/ApiContext";
 import Navigation from "./layout/Navigation/Navigation";
@@ -13,6 +11,8 @@ import Logout from "./components/logout/Logout";
 import BookDetails from "./pages/bookdetailspage/BookDetails";
 import Header from "./layout/header/Header";
 import styles from "./App.module.css"
+import QuizResultsPage from "./pages/quizresultspage/QuizResultsPage";
+import React from "react";
 
 function App() {
 
@@ -20,7 +20,9 @@ function App() {
         <>
             <AuthProvider>
                 <header className={styles.header}>
-                    <Header/>
+                    <h1>
+                        Boekenworm.nl
+                    </h1>
                 </header>
                 <nav className={styles.nav}>
                     <Navigation/>
@@ -30,14 +32,13 @@ function App() {
                         <Route path="/" element={<HomePage/>}/>
                         <Route path="/ListPage" element={<ListPage/>}/>
                         <Route path="/RegisterPage" element={<RegisterPage/>}/>
-                        <Route path="/QuizResultsPage" element={<ProtectedRoute><FiveBooksPage/></ProtectedRoute>}/>
-                        <Route path="/RandomBookPage" element={<ProtectedRoute><RandomBookPage/></ProtectedRoute>}/>
+                        <Route path="/QuizResultsPage" element={<ProtectedRoute><QuizResultsPage/></ProtectedRoute>}/>
                         <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
                         <Route path="/bookDetails/:author/:id" element={<BookDetails/>}/>
                     </Routes>
                 </main>
                 <footer className={styles.footer}>
-                    <Logout/>
+                   <h3><Logout/></h3>
                 </footer>
             </AuthProvider>
         </>

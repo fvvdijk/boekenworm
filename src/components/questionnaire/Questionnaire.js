@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Button from "../shared/button/Button";
 
 const Questionnaire = (props) => {
     const initialAnswers = {
@@ -93,12 +94,12 @@ const Questionnaire = (props) => {
             {currentQuestion === "personality" && (
                 <div>
                     <p>Question 1: Ben je een introvert of een extravert?</p>
-                    <button onClick={() => handleAnswer("personality", "introvert")}>
+                    <Button onClick={() => handleAnswer("personality", "introvert")}>
                         Introvert
-                    </button>
-                    <button onClick={() => handleAnswer("personality", "extravert")}>
+                    </Button>
+                    <Button onClick={() => handleAnswer("personality", "extravert")}>
                         Extravert
-                    </button>
+                    </Button>
                 </div>
             )}
             {currentQuestion === "interest" && (
@@ -106,16 +107,20 @@ const Questionnaire = (props) => {
                     <p>
                         Question 2: Hou je van diepgaande of oppervlakkige onderwerpen?
                     </p>
-                    <button onClick={() => handleAnswer("interest", "deep")}>Diep</button>
-                    <button onClick={() => handleAnswer("interest", "superficial")}>
+                    <Button onClick={() => handleAnswer("interest", "deep")}>
+                        Diep
+                    </Button>
+                    <Button onClick={() => handleAnswer("interest", "superficial")}>
                         Oppervlakkig
-                    </button>
+                    </Button>
                 </div>
             )}
             {currentQuestion === "result" && (
                 <div>
                     <h3>Resultaat: {getResult()}</h3>
-                    <button onClick={restartTest}>Restart Test</button>
+                    <Button type="button" onClick={restartTest}>
+                        Restart Test
+                    </Button>
                 </div>
             )}
         </div>

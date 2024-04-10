@@ -24,7 +24,22 @@
 }
 
 .footer {
-    height: 50px;
-    background-color: #d2b48c;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgrey;
+    width: auto;
+    height: auto;
+    max-height: 56px;
 }
+
+.input {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
 /* app.css run start is voor lokale stylingregels */

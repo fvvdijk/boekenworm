@@ -1,24 +1,29 @@
 .searchbar {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px; /* Add margin for spacing */
+    align-items: baseline;
+    margin-bottom: 20px;
+    width: 500px;
 }
 
-.searchbar input {
-    width: 300px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
-    font-size: 16px; /* Adjust the font size as needed */
+.searchbar-input {
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }
 
-.searchbar button {
-    width: 100px; /* Adjust the width as needed */
-    height: 46px; /* Adjust the height as needed */
-    font-size: 16px; /* Adjust the font size as needed */
+.searchbar Button {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
 }
 
 .noResultsMessage {
-    color: red; /* Change the color to your preference */
+    color: red;
     font-size: 14px;
     margin-top: 8px;
 }

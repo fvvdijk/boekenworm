@@ -27,9 +27,9 @@ const renderSearchResults = (searchResults) => {
                             <h3>{book.title}</h3>
                             <p>
                                 {book.author_name} {" "}
-                                <Link to={`/bookDetails/${book.author_name}/${extractOLID(book?.key)}`} id={extractOLID(book?.key)}>
+                                    <Link to={`/bookDetails/${book.author_name}/${extractOLID(book?.key)}`} id={extractOLID(book?.key)}>
                                     Extra info
-                                </Link>
+                                    </Link>
                             </p>
                         </li>
                     ))}

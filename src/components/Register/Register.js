@@ -38,31 +38,21 @@ function RegistrationForm() {
         }
     };
 
-    const handleEnterKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            handleSubmit();
-        }
-    };
-
     return (
         <div className={styles['register-form']}>
             <form onSubmit={(e) => e.preventDefault()} className={styles["form-style"]}>
-                <div className="container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
+                <div className={styles.container}>
+                    <h1>Registratie</h1>
+                    <p>Vul deze velden in en druk op enter om een account aan te maken.</p>
                     <hr />
-
-                        <label htmlFor="name"><b>Name</b></label>
-                    <input type="text" placeholder="Enter name" name="name" id="name" required onChange={(e) => handleInputChange(e)}></input>
-
-                    <label htmlFor="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" id="password" required onChange={(e) => handleInputChange(e)}></input>
-
+                    <label htmlFor="name"><b>Naam</b></label>
+                    <input type="text" placeholder="Naam" name="name" id="name" required onChange={(e) => handleInputChange(e)}></input>
+                    <label htmlFor="password"><b>Wachtwoord</b></label>
+                    <input type="password" placeholder="Wachtwoord" name="password" id="password" required onChange={(e) => handleInputChange(e)}></input>
                     <label htmlFor="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter email" name="email" id="email" required onChange={(e) => handleInputChange(e)}></input>
-
+                    <input type="text" placeholder="Email" name="email" id="email" required onChange={(e) => handleInputChange(e)}></input>
                     <hr />
-                                        <Button type="submit" className="registerbtn" onClick={handleSubmit}>Register</Button>
+                    <Button type="submit" className="registerbtn" onClick={handleSubmit}>Account aanmaken</Button>
                 </div>
               <div>  {successMessage && (
                   <div className={styles['success-message-container']}>
@@ -76,7 +66,7 @@ function RegistrationForm() {
                   )}
               </div>
                 <div className="container signin">
-                    <p>Already have an account? <Link to="/">Sign in</Link>.</p>
+                    <p>Heb je al een account? <Link to="/">Log in</Link>.</p>
                 </div>
             </form>
         </div>
