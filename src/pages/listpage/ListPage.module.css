@@ -3,6 +3,11 @@
     flex-direction: column;
     gap: 20px;
     background-color: #f4eddf;
+    height: 100vh;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-content: flex-start
 }
 
 .list-item {
@@ -12,5 +17,17 @@
     margin-top: 30px;
     gap: 60px;
     background-color: #deb887;
+}
+
+.list-section {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
 }
 

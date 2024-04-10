@@ -1,18 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./BookDetails.module.css"
 import {useNavigate, useParams} from 'react-router-dom';
-import axios from "axios";
 import Alert from "../../components/shared/notification/Alert";
+import {useAuth} from "../../helpers/context/ApiContext";
+import Button from "../../components/shared/button/Button";
 
 const BookDetails = () => {
     const { id, author } = useParams();
     const navigate = useNavigate();
     const [book, setBook] = useState(null);
+    const corsAllowed = localStorage.getItem('cors');
     const [alert, setAlert] = useState({
         message: '',
         type: '',
         visible: false
     });
+    const { fetchBookDetails } = useAuth();
 
     const showAlert = (message, type) => {
         setAlert({ message, type, visible: true });
@@ -23,7 +26,7 @@ const BookDetails = () => {
     };
     const getBookDetails = async () => {
         try {
-            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/${id}.json`).catch((err)=>{
+            const response = await fetchBookDetails(id).catch((err)=>{
                 showAlert('This is a error message!', 'alert-error');
                 setTimeout(()=>{
                     closeAlert()
@@ -36,11 +39,23 @@ const BookDetails = () => {
             },3000);
         } catch (e) {
             setTimeout(()=>{
-                navigate("/");
+                if(!corsAllowed){
+                    getPermission();
+                }
+                    navigate("/");
             },3000);
-
         }
-
+    }
+    const getPermission = () => {
+        if(corsAllowed){
+            window.location.href = 'https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/OL82563W.json';
+            window.onload = function() {
+                const button = document.querySelectorAll('button[type="submit"]');
+                button.click();
+                localStorage.setItem('cors', true);
+                window.location.href = 'http://localhost:3000/ListPage';
+            };
+        }
     }
     useEffect(() => {
         getBookDetails();
@@ -48,6 +63,7 @@ const BookDetails = () => {
 
     return (
         <div className={styles.bookDetails}>
+            {!corsAllowed &&  <Button onClick={getPermission} children={"Enable Cors"}/>}
             {alert.visible && (
                 <Alert
                     message={alert.message}

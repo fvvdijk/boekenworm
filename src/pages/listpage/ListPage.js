@@ -9,7 +9,7 @@ const renderSearchResults = (searchResults) => {
     if (searchResults && searchResults.docs.length > 0) {
         return (
             <article>
-                <ul>
+                <ul className={styles['list-page']}>
                     {searchResults.docs.slice(0, 30).map((book) => (
                         <li key={book.key} className={styles['list-item']}>
                             <figure>
@@ -47,9 +47,8 @@ const renderSearchResults = (searchResults) => {
 const ListPage = () => {
     const location = useLocation();
     const searchResults = location.state && location.state.searchResults;
-
     return (
-        <section className={styles['list-page']}>
+        <section className={styles['list-section']}>
             <h1>Zoekresultaten</h1>
 
             {renderSearchResults(searchResults)}

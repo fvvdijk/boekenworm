@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../helpers/context/AuthContext';
+import { useAuth } from '../../helpers/context/ApiContext';
 import styles from "../shared/searchbar/SearchBar.module.css";
 
 const Logout = () => {

@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AuthContext = createContext(null);
+const ApiContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
+    const apikey = 'boekenworm:byfOaBewbNje38gcGoHw';
     const getUserFromLocalStorage = () => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
@@ -56,6 +57,67 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const register = async (username, password, email) => {
+        try {
+            const response = await axios.post(
+                'https://api.datavortex.nl/boekenworm/users',
+                {
+                    username: username,
+                    password: password,
+                    email: email,
+                    info: null,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': apikey,
+                    },
+                }
+            );
+
+            return response;
+        } catch (error) {
+            console.error('register error:', error.message);
+            throw new Error('Invalid credentials');
+        }
+    };
+
+    const fetchBookDetails = async (id) => {
+        try {
+            const response = await axios.get(
+                `https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/${id}.json`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            return response;
+        } catch (error) {
+            console.error('register error:', error.message);
+            throw new Error('Invalid credentials');
+        }
+    };
+
+    const fetchBooks = async (query) => {
+        try {
+            const response = await axios.get(
+                `https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            return response;
+        } catch (error) {
+            console.error('register error:', error.message);
+            throw new Error('Invalid credentials');
+        }
+    };
+
     const logout = () => {
         setUser(null);
         delete axios.defaults.headers.common['Authorization'];
@@ -65,12 +127,12 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, login, logout }}>
+        <ApiContext.Provider value={{ user, token, login, logout, register, fetchBookDetails, fetchBooks }}>
             {children}
-        </AuthContext.Provider>
+        </ApiContext.Provider>
     );
 };
 
 export const useAuth = () => {
-    return useContext(AuthContext);
+    return useContext(ApiContext);
 };

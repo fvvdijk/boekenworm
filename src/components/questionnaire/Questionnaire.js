@@ -63,7 +63,7 @@ const Questionnaire = (props) => {
     useEffect(() => {
         if (currentQuestion === "result" && apiResult && apiResult.works) {
             const timeoutId = setTimeout(() => {
-                navigate("/FiveBooksPage", { state: { works: apiResult.works } });
+                navigate("/QuizResultsPage", { state: { works: apiResult.works } });
             }, 3000);
 
             return () => clearTimeout(timeoutId);

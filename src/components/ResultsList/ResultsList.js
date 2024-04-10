@@ -7,7 +7,6 @@ const ResultsList = ({ works }) => {
         <div className={styles["results-list"]}>
             {works && works.length > 0 ? (
                 <div>
-                    <h4>Resultaten:</h4>
                     <ul>
                         {works.map((work, index) => (
                             <ResultItem key={index} work={work} />

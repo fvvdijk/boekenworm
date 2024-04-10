@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../helpers/context/AuthContext';
+import { useAuth } from '../../helpers/context/ApiContext';
 import styles from './Navigation.module.css';
+import Logout from "../../components/logout/Logout";
 
 function Navigation() {
     const { user } = useAuth();
@@ -12,13 +13,10 @@ function Navigation() {
                 <NavLink to="/UserPage">UserPage</NavLink>
             </li>
             <li>
-                <NavLink to="/FiveBooksPage">FiveBooksPage</NavLink>
+                <NavLink to="/QuizResultsPage">QuizResultsPage</NavLink>
             </li>
             <li>
-                <NavLink to="/RandomBookPage">RandomBookPage</NavLink>
-            </li>
-            <li>
-                <p>Je bent ingelogd!</p>
+                <Logout />
             </li>
         </>
     );

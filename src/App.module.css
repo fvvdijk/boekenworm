@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgrey;
+    height: 55px;
+    width: auto;
+}
+
+.nav{
+    height: 50px;
+    background-color: #d2b48c;
+}
+
+.main {
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4eddf;
+    overflow: auto;
+}
+
+.footer {
+    height: 50px;
+    background-color: #d2b48c;
+}
+/* app.css run start is voor lokale stylingregels */

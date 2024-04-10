@@ -1,14 +1,14 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import ResultsList from "../../components/ResultsList/ResultsList";
-import styles from "./FiveBooksPage.module.css"
-const FiveBooksPage = () => {
+import styles from "./QuizResultsPage.module.css"
+const QuizResultsPage = () => {
     const location = useLocation();
     const { works } = location.state || {};
 
     return (
         <section className={styles['five-books']}>
-            <h1>5 boeken:</h1>
+            <h1>Resultaten:</h1>
             {works ? (
                 <ResultsList works={works} />
             ) : (
@@ -18,4 +18,4 @@ const FiveBooksPage = () => {
     );
 };
 
-export default FiveBooksPage;
+export default QuizResultsPage;

@@ -14,5 +14,9 @@
     justify-content: center;
     margin-top: 30px;
     gap: 150px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: lightgrey;
 }
 

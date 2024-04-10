@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { useAuth } from "../../helpers/context/AuthContext";
+import { useAuth } from "../../helpers/context/ApiContext";
 import Questionnaire from "../../components/questionnaire/Questionnaire";
-import FiveBooksPage from "../fivebookspage/FiveBooksPage";
+import FiveBooksPage from "../quizresultspage/QuizResultsPage";
 import RandomBookPage from "../randombookpage/RandomBookPage";
 import styles from "./UserPage.module.css";
 

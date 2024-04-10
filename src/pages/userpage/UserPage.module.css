@@ -16,4 +16,7 @@
     margin: 20px;
     background-color: #deb887;
     padding: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }

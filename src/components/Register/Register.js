@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styles from './Register.module.css';
 import Button from "../shared/button/Button";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useAuth} from "../../helpers/context/ApiContext";
 
 function RegistrationForm() {
     const [name, setName] = useState('');
@@ -11,8 +11,8 @@ function RegistrationForm() {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
+    const { register } = useAuth();
 
-    const apikey = 'boekenworm:byfOaBewbNje38gcGoHw';
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -27,28 +27,14 @@ function RegistrationForm() {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post(
-                'https://api.datavortex.nl/boekenworm/users',
-                {
-                    username: name,
-                    password: password,
-                    email: email,
-                    info: null,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Api-Key': apikey,
-                    },
-                }
-            );
+            const response = await register(name, password, email);
             setSuccessMessage('Registration successful!');
             setTimeout(()=>{
                 navigate("/");
             },3000);
         } catch (error) {
-            console.error(error.response.data);
-            setErrorMessage(error.response.data || 'Registration failed');
+            console.error(error?.response?.data);
+            setErrorMessage(error?.response?.data || 'Registration failed');
         }
     };
 
@@ -60,67 +46,37 @@ function RegistrationForm() {
 
     return (
         <div className={styles['register-form']}>
-            <form onSubmit={(e) => e.preventDefault()}>
-                <div className={styles['form-body']}>
-                    <div>
-                        <div className="username">
-                            <label className="form__label" htmlFor="name">
-                                Name
-                            </label>
-                            <input
-                                className="form__input"
-                                type="text"
-                                value={name}
-                                onChange={(e) => handleInputChange(e)}
-                                id="name"
-                                placeholder="Your Name"
-                                onKeyPress={handleEnterKeyPress}
-                            />
-                        </div>
-                        <div className="password">
-                            <label className="form__label" htmlFor="password">
-                                Password
-                            </label>
-                            <input
-                                className="form__input"
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => handleInputChange(e)}
-                                placeholder="Password"
-                                onKeyPress={handleEnterKeyPress}
-                            />
-                        </div>
-                        <div className="email">
-                            <label className="form__label" htmlFor="email">
-                                Email
-                            </label>
-                            <input
-                                className="form__input"
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => handleInputChange(e)}
-                                placeholder="Email"
-                                onKeyPress={handleEnterKeyPress}
-                            />
-                        </div>
-                    </div>
-                    <div className="footer">
-                        <Button type="button" onClick={handleSubmit} className="btn">
-                            Register
-                        </Button>
-                    </div>
-                    {successMessage && (
-                        <div className={styles['success-message-container']}>
-                            <p className={styles['success-message']}>{successMessage}</p>
-                        </div>
-                    )}
-                    {errorMessage && (
-                        <div className={styles['error-message-container']}>
-                            <p className={styles['error-message']}>{errorMessage}</p>
-                        </div>
-                    )}
+            <form onSubmit={(e) => e.preventDefault()} className={styles["form-style"]}>
+                <div className="container">
+                    <h1>Register</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <hr />
+
+                        <label htmlFor="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter name" name="name" id="name" required onChange={(e) => handleInputChange(e)}></input>
+
+                    <label htmlFor="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="password" required onChange={(e) => handleInputChange(e)}></input>
+
+                    <label htmlFor="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter email" name="email" id="email" required onChange={(e) => handleInputChange(e)}></input>
+
+                    <hr />
+                                        <Button type="submit" className="registerbtn" onClick={handleSubmit}>Register</Button>
+                </div>
+              <div>  {successMessage && (
+                  <div className={styles['success-message-container']}>
+                      <p className={styles['success-message']}>{successMessage}</p>
+                  </div>
+              )}
+                  {errorMessage && (
+                      <div className={styles['error-message-container']}>
+                          <p className={styles['error-message']}>{errorMessage}</p>
+                      </div>
+                  )}
+              </div>
+                <div className="container signin">
+                    <p>Already have an account? <Link to="/">Sign in</Link>.</p>
                 </div>
             </form>
         </div>

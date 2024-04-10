@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import  {DNA} from "react-loader-spinner";
-import axios from 'axios';
+import {useAuth} from "../../../helpers/context/ApiContext";
 
 
 function SearchBar() {
@@ -10,11 +10,12 @@ function SearchBar() {
     const [query, setQuery] = useState('');
     const [noResults, setNoResults] = useState(false); // State to track no results
     const navigate = useNavigate();
+    const { fetchBooks } = useAuth();
 
     async function searchBooks(query) {
         try {
             setLoading(true);
-            const response = await axios.get(`https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`);
+            const response = await fetchBooks(query);
             setLoading(false);
             return { success: response.status === 200, data: response.data };
         } catch (error) {

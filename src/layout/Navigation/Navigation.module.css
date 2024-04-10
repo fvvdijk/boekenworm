@@ -6,4 +6,7 @@
     margin: unset;
     align-items: center;
     background-color: #d2b48c;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }
