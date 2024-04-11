@@ -30,13 +30,16 @@ function LoginForm() {
 
             const { user: loggedInUser, token } = await login(username, password);
 
-            navigate("/UserPage");
+            navigate("/UserPage").then(() => {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
         } catch (error) {
             console.error('Login error:', error.message);
             setErrorMessage('Oeps, probeer het nog eens.');
         }
     };
-
     const handleEnterKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleLogin();
@@ -44,7 +47,7 @@ function LoginForm() {
     };
 
     return (
-        <div className={styles['login-form']}>
+        <section className={styles['login-form']}>
             <div className="form-body">
                 <div className="username">
                     <label className="form__label" htmlFor="username">
@@ -85,7 +88,7 @@ function LoginForm() {
                     </div>
                 )}
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -21,10 +21,12 @@ function HomePage() {
             <hr />
             <article className={styles['centered-content']}>
                 <LoginForm />
-                <p>Nog geen account? klik dan op: </p>
-                <Button type="button" onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}>
-                    Registreren
-                </Button>
+                <div className={styles['reg-button']}>
+                    <p>Nog geen account? klik dan op: </p>
+                    <Button  type="button" onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}>
+                        Registreren
+                    </Button>
+                </div>
             </article>
             <article>
                 <p>https://cors-anywhere.herokuapp.com/corsdemo</p>

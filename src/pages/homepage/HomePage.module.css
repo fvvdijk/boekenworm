@@ -19,5 +19,13 @@
     align-content: center;
     background-color: #deb887;
     border-radius: 8px;
+    margin: 1px;
 }
 
+.reg-button {
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}

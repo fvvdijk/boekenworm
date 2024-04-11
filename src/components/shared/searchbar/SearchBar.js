@@ -52,7 +52,7 @@ function SearchBar() {
         return <DNA type="Puff" color="#00BFFF" height={100} width={100} />;;
     }
     return (
-        <div>
+        <section>
             <form className={styles.searchbar} onSubmit={onFormSubmit}>
                 <input className={styles["searchbar-input"]}
                     type="text"
@@ -69,7 +69,7 @@ function SearchBar() {
             {noResults && (
                 <p className={styles.noResultsMessage}>Geen resultaten gevonden, probeer het opnieuw.</p>
             )}
-        </div>
+        </section>
     );
 }
 

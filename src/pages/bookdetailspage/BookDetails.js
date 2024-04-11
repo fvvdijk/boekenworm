@@ -4,6 +4,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 import Alert from "../../components/shared/notification/Alert";
 import {useAuth} from "../../helpers/context/ApiContext";
 import Button from "../../components/shared/button/Button";
+import {DNA} from "react-loader-spinner";
 
 const BookDetails = () => {
     const { id, author } = useParams();
@@ -27,27 +28,27 @@ const BookDetails = () => {
     const getBookDetails = async () => {
         try {
             const response = await fetchBookDetails(id).catch((err)=>{
-                showAlert('This is a error message!', 'alert-error');
+                showAlert('Er is wat misgelopen!', 'alert-error');
                 setTimeout(()=>{
                     closeAlert()
-                },3000);
+                },4000);
             });
             setBook(response.data);
-            showAlert('This is a success message!', 'alert-success');
+            showAlert('Data ontvangen!', 'alert-success');
             setTimeout(()=>{
                 closeAlert()
-            },3000);
+            },2000);
         } catch (e) {
             setTimeout(()=>{
                 if(!corsAllowed){
                     getPermission();
                 }
-                    navigate("/");
+                navigate("/");
             },3000);
         }
     }
     const getPermission = () => {
-        if(corsAllowed){
+        if(!corsAllowed){
             window.location.href = 'https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/OL82563W.json';
             window.onload = function() {
                 const button = document.querySelectorAll('button[type="submit"]');
@@ -62,14 +63,14 @@ const BookDetails = () => {
     }, [id]);
 
     return (
-        <div className={styles.bookDetails}>
-            {!corsAllowed &&  <Button type="button" onClick={getPermission} children={"Enable Cors"}/>}
+        <article className={styles.bookDetails}>
+            {!corsAllowed &&  <Button disabled={true} type="button" children={"Enable Cors"}>Cors enabled</Button>}
             {alert.visible && (
                 <Alert
                     message={alert.message}
                     type={alert.type}
                     onClose={closeAlert}
-                />
+                    />
             )}
             <h2 className={styles.title}>{book?.title}</h2>
             <div className={styles.detail}><strong>Last Modified:</strong> <span>{book?.last_modified.value}</span></div>
@@ -80,7 +81,7 @@ const BookDetails = () => {
             <div className={styles.detail}><strong>Subjects:</strong> <span>{book?.subjects? book?.subjects.join(', ') : "unknown"}</span></div>
             <div className={styles.detail}><strong>Subject People:</strong> <span>{book?.subject_people? book?.subject_people.join(', ') : "unknown"}</span></div>
             <div className={styles.detail}><strong>Revision:</strong> <span>{book?.revision}</span></div>
-        </div>
+        </article>
     );
 };
 

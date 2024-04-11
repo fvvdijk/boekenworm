@@ -1,11 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Questionnaire from "../../components/questionnaire/Questionnaire";
 import styles from "./UserPage.module.css";
+import {useParams} from 'react-router-dom';
 
 function UserPage() {
-    // const user = useAuth();
+    const { id, author } = useParams();
     const randomOffset = Math.floor(Math.random() * 100);
     const [bookOptions] = useState([]);
+    const [refreshKey, setRefreshKey] = useState(0);
+
+    useEffect(() => {
+        setRefreshKey(oldKey => oldKey + 1);
+    }, []);
 
     const renderBookOptions = () => {
         if (bookOptions.length > 0) {

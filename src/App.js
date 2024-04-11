@@ -9,7 +9,6 @@ import Navigation from "./layout/navigation/Navigation";
 import {ProtectedRoute} from "./helpers/protectedroute/ProtectedRoute";
 import Logout from "./components/logout/Logout";
 import BookDetails from "./pages/bookdetailspage/BookDetails";
-import Header from "./layout/header/Header";
 import styles from "./App.module.css"
 import QuizResultsPage from "./pages/quizresultspage/QuizResultsPage";
 import React from "react";
