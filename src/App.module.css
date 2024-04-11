@@ -29,11 +29,10 @@
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    justify-content: center;
     background-color: darkgrey;
     width: auto;
-    height: auto;
-    max-height: 59px;
+    height: 59px;
+    justify-content: space-evenly;
 }
 
 .input {
@@ -62,5 +61,3 @@ input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
-
-/* app.css run start is voor lokale stylingregels */

@@ -12,6 +12,7 @@ import BookDetails from "./pages/bookdetailspage/BookDetails";
 import styles from "./App.module.css"
 import QuizResultsPage from "./pages/quizresultspage/QuizResultsPage";
 import React from "react";
+import CorsButton from "./components/shared/corsbutton/CorsButton";
 
 function App() {
 
@@ -37,7 +38,8 @@ function App() {
                     </Routes>
                 </main>
                 <footer className={styles.footer}>
-                   <h3><Logout/></h3>
+                   <Logout/>
+                    <CorsButton url="https://cors-anywhere.herokuapp.com/corsdemo"/>
                 </footer>
             </AuthProvider>
         </>

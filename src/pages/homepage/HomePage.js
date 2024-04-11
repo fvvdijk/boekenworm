@@ -28,9 +28,6 @@ function HomePage() {
                     </Button>
                 </div>
             </article>
-            <article>
-                <p>https://cors-anywhere.herokuapp.com/corsdemo</p>
-            </article>
         </section>
     );
 }

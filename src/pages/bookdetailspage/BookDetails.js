@@ -49,7 +49,7 @@ const BookDetails = () => {
     }
     const getPermission = () => {
         if(!corsAllowed){
-            window.location.href = 'https://cors-anywhere.herokuapp.com/https://openlibrary.org/books/OL82563W.json';
+            window.location.href = 'https://cors-anywhere.herokuapp.com/corsdemo';
             window.onload = function() {
                 const button = document.querySelectorAll('button[type="submit"]');
                 button.click();
