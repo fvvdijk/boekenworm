@@ -4,10 +4,10 @@
     align-items: flex-start;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f4eddf;
+    background-color: #d2b48c;
 }
 
 .title {

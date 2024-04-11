@@ -1,5 +1,4 @@
 .five-books {
-    display: ruby-text;
     flex-direction: column;
     flex-basis: auto;
     align-items: center;
@@ -7,5 +6,8 @@
     max-height: 100vh;
     overflow-y: auto;
     background-color: #f4eddf;
-    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }

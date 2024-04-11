@@ -54,7 +54,7 @@ function SearchBar() {
     return (
         <div>
             <form className={styles.searchbar} onSubmit={onFormSubmit}>
-                <input className={styles['searchbar-input']}
+                <input className={styles["searchbar-input"]}
                     type="text"
                     name="search"
                     value={query}

@@ -21,12 +21,12 @@ function UserPage() {
     };
 
     return (
-        <article className={styles.userpage}>
+        <article className={styles["user-page"]}>
             <h1>Je bent ingelogd!</h1>
-            <div className={styles['personality-tests']}>
+            <div className={styles["personality-tests"]}>
                 <Questionnaire limit={5}/>
+                <hr />
                 <Questionnaire randomOffset={randomOffset} limit={1} />
-
                 {renderBookOptions()}
             </div>
         </article>
