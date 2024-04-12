@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "../../components/shared/searchbar/SearchBar";
-import LoginForm from "../../components/Login/Login";
+import LoginForm from "../../components/login/Login";
 import Button from "../../components/shared/button/Button";
 import styles from './HomePage.module.css';
 import {useNavigate} from "react-router-dom";
@@ -23,7 +23,7 @@ function HomePage() {
                 <LoginForm />
                 <div className={styles['reg-button']}>
                     <p>Nog geen account? klik dan op: </p>
-                    <Button  type="button" onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"Register"}>
+                    <Button  type="button" onClick={navigateTo} label="Registreren" to="/RegisterPage" children={"register"}>
                         Registreren
                     </Button>
                 </div>

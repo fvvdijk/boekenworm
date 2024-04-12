@@ -8,7 +8,7 @@ import {AuthProvider} from "./helpers/context/ApiContext";
 import Navigation from "./layout/navigation/Navigation";
 import {ProtectedRoute} from "./helpers/protectedroute/ProtectedRoute";
 import Logout from "./components/logout/Logout";
-import BookDetails from "./pages/bookdetailspage/BookDetails";
+import BookDetailsPage from "./pages/bookdetailspage/BookDetailsPage";
 import styles from "./App.module.css"
 import QuizResultsPage from "./pages/quizresultspage/QuizResultsPage";
 import React from "react";
@@ -34,7 +34,8 @@ function App() {
                         <Route path="/RegisterPage" element={<RegisterPage/>}/>
                         <Route path="/QuizResultsPage" element={<ProtectedRoute><QuizResultsPage/></ProtectedRoute>}/>
                         <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
-                        <Route path="/bookDetails/:author/:id" element={<BookDetails/>}/>
+                        <Route path="/bookDetails/:author/:id" element={<BookDetailsPage/>}/>
+                        {/*bookdetails moet bookdetailspage worden*/}
                     </Routes>
                 </main>
                 <footer className={styles.footer}>

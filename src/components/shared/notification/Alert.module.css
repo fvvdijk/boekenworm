@@ -1,8 +1,8 @@
 .alert {
-    padding: 15px !important;
-    margin: 10px 0 !important;
-    border: 1px solid transparent !important;
-    border-radius: 4px !important;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 4px;
 }
-.alert-success { background-color: #d4edda !important; }
-.alert-error { background-color: #f8d7da !important; }
+.alert-success { background-color: #0c932c; }
+.alert-error { background-color: #83232c; }

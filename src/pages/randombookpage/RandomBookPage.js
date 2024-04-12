@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import ResultsList from "../../components/ResultsList/ResultsList";
+import ResultsList from "../../components/resultslist/ResultsList";
 import styles from "./RandomBookPage.module.css"
 
 const RandomBookPage = () => {

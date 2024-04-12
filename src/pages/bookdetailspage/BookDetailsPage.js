@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import styles from "./BookDetails.module.css"
+import styles from "./BookDetailsPage.module.css"
 import {useNavigate, useParams} from 'react-router-dom';
 import Alert from "../../components/shared/notification/Alert";
 import {useAuth} from "../../helpers/context/ApiContext";
-import Button from "../../components/shared/button/Button";
-import {DNA} from "react-loader-spinner";
 
-const BookDetails = () => {
+const BookDetailsPage = () => {
     const { id, author } = useParams();
     const navigate = useNavigate();
     const [book, setBook] = useState(null);
@@ -64,7 +62,7 @@ const BookDetails = () => {
 
     return (
         <article className={styles.bookDetails}>
-            {!corsAllowed &&  <Button disabled={true} type="button" children={"Enable Cors"}>Cors enabled</Button>}
+            {/*{!corsAllowed && }*/}
             {alert.visible && (
                 <Alert
                     message={alert.message}
@@ -85,4 +83,4 @@ const BookDetails = () => {
     );
 };
 
-export default BookDetails;
+export default BookDetailsPage;

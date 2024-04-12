@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
 
             return serverToken;
         } catch (error) {
-            console.error('Login error:', error.message);
+            console.error('login error:', error.message);
             throw new Error('Invalid credentials');
         }
     };

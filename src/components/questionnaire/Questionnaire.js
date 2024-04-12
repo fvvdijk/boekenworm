@@ -39,8 +39,9 @@ const Questionnaire = (props) => {
             setApiResult(response.data);
             setApiCalled(true);
         } catch (error) {
-            console.error("Error fetching API:", error);
-            alert("Error fetching API:");
+            if (window.confirm("Iets ging er mis, klik op OK om de pagina te vernieuwen")) {
+                window.location.reload();
+            }
         } finally {
             setIsLoading(false);
         }
