@@ -28,10 +28,10 @@ function RegistrationForm() {
     const handleSubmit = async () => {
         try {
             const response = await register(name, password, email);
-            setSuccessMessage('Registration successful!');
+            setSuccessMessage('Registratie succesvol! Je wordt nu naar de homepage geleid.');
             setTimeout(()=>{
                 navigate("/");
-            },3000);
+            },4000);
         } catch (error) {
             console.error(error?.response?.data);
             setErrorMessage(error?.response?.data || 'Registration failed');

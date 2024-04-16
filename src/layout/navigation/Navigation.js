@@ -37,7 +37,7 @@ function Navigation() {
     return (
         <nav>
             <ul className={styles['navigation-bar']}>
-                <li>
+                <li className={styles['navigation-bar-li']}>
                     <NavLink to="/">Home</NavLink>
                 </li>
                 {user ? loggedInLinks : loggedOutLinks}

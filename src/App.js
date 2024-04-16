@@ -35,7 +35,6 @@ function App() {
                         <Route path="/QuizResultsPage" element={<ProtectedRoute><QuizResultsPage/></ProtectedRoute>}/>
                         <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
                         <Route path="/bookDetails/:author/:id" element={<BookDetailsPage/>}/>
-                        {/*bookdetails moet bookdetailspage worden*/}
                     </Routes>
                 </main>
                 <footer className={styles.footer}>
