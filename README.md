@@ -30,6 +30,10 @@ Volg deze stappen om de Boekenworm-applicatie lokaal te installeren en uit te vo
 
 1. Start de ontwikkelserver: `npm start`
 2. Open de applicatie in je webbrowser: [http://localhost:3000]
+3. Wanneer je de functie 'Extra info' wilt gebruiken, klik dan op de button 'Corsdemo', 
+dan word je geleid naar https://cors-anywhere.herokuapp.com/corsdemo waar je kunt klikken op
+'Request temporary acces to the demo server', zodat de data verkregen kan worden door de axios request.
+Nu kun je zonder problemen extra info verkrijgen over een boek.
 
 ### Beschikbare scripts
 

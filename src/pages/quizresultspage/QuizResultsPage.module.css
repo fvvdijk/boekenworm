@@ -1,0 +1,13 @@
+.five-books {
+    flex-direction: column;
+    flex-basis: auto;
+    align-items: center;
+    padding: 20px;
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color: #f4eddf;
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}

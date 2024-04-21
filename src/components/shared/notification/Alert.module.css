@@ -1,0 +1,8 @@
+.alert {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.alert-success { background-color: #0c932c; }
+.alert-error { background-color: #83232c; }

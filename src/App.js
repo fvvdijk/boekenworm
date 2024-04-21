@@ -1,39 +1,45 @@
-import './App.css';
-import HomePage from "./pages/Homepage/HomePage";
-import RegisterPage from "./pages/Account-aanmaken/Account-aanmaken";
-import UserPage from "./pages/Ingelogde-gebruiker/UserPage";
-import FiveBooksPage from "./pages/5-boeken/5-boeken";
-import ListPage from "./pages/Lijstpagina/Lijstpagina";
-import RandomBookPage from "./pages/Willekeurig-boek/RandomBookPage";
+import './App.module.css';
+import HomePage from "./pages/homepage/HomePage";
+import RegisterPage from "./pages/registerpage/RegisterPage";
+import UserPage from "./pages/userpage/UserPage";
+import ListPage from "./pages/listpage/ListPage";
 import {Routes, Route} from 'react-router-dom';
-import {AuthProvider} from "./services/Context/AuthContext";
-import Navigation from "./layout/Navigation/Navigation";
-import {ProtectedRoute} from "./helpers/ProtectedRoute/ProtectedRoute";
-import Logout from "./components/Logout/Logout";
-import BookDetails from "./pages/bookdetails/Book";
+import {AuthProvider} from "./helpers/context/ApiContext";
+import Navigation from "./components/navigation/Navigation";
+import {ProtectedRoute} from "./components/protectedroute/ProtectedRoute";
+import Logout from "./components/logout/Logout";
+import BookDetailsPage from "./pages/bookdetailspage/BookDetailsPage";
+import styles from "./App.module.css"
+import QuizResultsPage from "./pages/quizresultspage/QuizResultsPage";
+import React from "react";
+import CorsButton from "./components/shared/corsbutton/CorsButton";
 
 function App() {
 
     return (
         <>
             <AuthProvider>
-                <header />
-                <nav>
+                <header className={styles.header}>
+                    <h1>
+                        Boekenworm.nl
+                    </h1>
+                </header>
+                <nav className={styles.nav}>
                     <Navigation/>
                 </nav>
-                <main>
+                <main className={styles.main}>
                     <Routes>
-                    <Route path="/" element={<HomePage/>}/>
-                    <Route path="/ListPage" element={<ListPage/>}/>
-                    <Route path="/RegisterPage" element={<RegisterPage/>}/>
-                    <Route path="/FiveBooksPage" element={<ProtectedRoute><FiveBooksPage/></ProtectedRoute>}/>
-                    <Route path="/RandomBookPage" element={<ProtectedRoute><RandomBookPage/></ProtectedRoute>}/>
-                    <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
-                    <Route path="/bookDetails/:author/:id" element={<BookDetails/>}/>
-                </Routes>
+                        <Route path="/" element={<HomePage/>}/>
+                        <Route path="/ListPage" element={<ListPage/>}/>
+                        <Route path="/RegisterPage" element={<RegisterPage/>}/>
+                        <Route path="/QuizResultsPage" element={<ProtectedRoute><QuizResultsPage/></ProtectedRoute>}/>
+                        <Route path="/UserPage" element={<ProtectedRoute><UserPage/></ProtectedRoute>}/>
+                        <Route path="/bookDetails/:author/:id" element={<BookDetailsPage/>}/>
+                    </Routes>
                 </main>
-                <footer>
-                    <Logout/>
+                <footer className={styles.footer}>
+                   <Logout/>
+                    <CorsButton url="https://cors-anywhere.herokuapp.com/corsdemo"/>
                 </footer>
             </AuthProvider>
         </>

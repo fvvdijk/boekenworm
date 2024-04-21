@@ -28,4 +28,4 @@ const ResultItem = ({ work }) => {
     );
 };
 
- export default ResultItem;
+export default ResultItem;

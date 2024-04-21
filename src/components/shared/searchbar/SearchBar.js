@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import  {DNA} from "react-loader-spinner";
+import {useAuth} from "../../../helpers/context/ApiContext";
+import Button from "../button/Button";
+
 
 function SearchBar() {
     const [loading, setLoading] = useState(false);
     const [query, setQuery] = useState('');
     const [noResults, setNoResults] = useState(false); // State to track no results
     const navigate = useNavigate();
+    const { fetchBooks } = useAuth();
 
     async function searchBooks(query) {
         try {
             setLoading(true);
-            const response = await fetch(`https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,author_key,cover_i`);
-            const data = await response.json();
+            const response = await fetchBooks(query);
             setLoading(false);
-            return { success: response.ok, data };
+            return { success: response.status === 200, data: response.data };
         } catch (error) {
             console.error('Error fetching data from the API:', error.message);
             setLoading(false);
@@ -49,9 +52,9 @@ function SearchBar() {
         return <DNA type="Puff" color="#00BFFF" height={100} width={100} />;;
     }
     return (
-        <div>
+        <section>
             <form className={styles.searchbar} onSubmit={onFormSubmit}>
-                <input
+                <input className={styles["searchbar-input"]}
                     type="text"
                     name="search"
                     value={query}
@@ -59,14 +62,14 @@ function SearchBar() {
                     placeholder="Zoek op auteur, boektitel of op isbn"
                 />
 
-                <button type="submit">
+                <Button type="submit" className={styles['searchbar-button']}>
                     Zoek
-                </button>
+                </Button>
             </form>
             {noResults && (
                 <p className={styles.noResultsMessage}>Geen resultaten gevonden, probeer het opnieuw.</p>
             )}
-        </div>
+        </section>
     );
 }
 

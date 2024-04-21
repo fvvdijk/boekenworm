@@ -1,0 +1,12 @@
+.navigation-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 50px;
+    margin: unset;
+    align-items: center;
+    background-color: #d2b48c;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
