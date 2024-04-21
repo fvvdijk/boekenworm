@@ -5,7 +5,7 @@ import UserPage from "./pages/userpage/UserPage";
 import ListPage from "./pages/listpage/ListPage";
 import {Routes, Route} from 'react-router-dom';
 import {AuthProvider} from "./helpers/context/ApiContext";
-import Navigation from "./layout/navigation/Navigation";
+import Navigation from "./components/navigation/Navigation";
 import {ProtectedRoute} from "./components/protectedroute/ProtectedRoute";
 import Logout from "./components/logout/Logout";
 import BookDetailsPage from "./pages/bookdetailspage/BookDetailsPage";
