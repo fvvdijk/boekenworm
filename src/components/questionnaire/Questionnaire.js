@@ -14,7 +14,7 @@ const Questionnaire = (props) => {
     const [currentQuestion, setCurrentQuestion] = useState("personality");
     const [apiResult, setApiResult] = useState(null);
     const [apiCalled, setApiCalled] = useState(false);
-    const [isLoading, setIsLoading] = useState(false); // New state variable for tracking loading state
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleAnswer = (question, answer) => {

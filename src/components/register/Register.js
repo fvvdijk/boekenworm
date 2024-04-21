@@ -28,6 +28,7 @@ function RegistrationForm() {
     const handleSubmit = async () => {
         try {
             const response = await register(name, password, email);
+            console.log(response)
             setSuccessMessage('Registratie succesvol! Je wordt nu naar de homepage geleid.');
             setTimeout(()=>{
                 navigate("/");
@@ -67,6 +68,14 @@ function RegistrationForm() {
               </div>
                 <div className="container signin">
                     <p>Heb je al een account? <Link to="/">Log in</Link>.</p>
+                </div>
+                <div>
+                    <ul>
+                        <h4>Voorwaarden:</h4>
+                        <li>Naam moet minimaal 4 karakters bevatten</li>
+                        <li>Wachtwoord moet minimaal 8 karakters bevatten</li>
+                        <li>Email moet bestaan</li>
+                    </ul>
                 </div>
             </form>
         </div>

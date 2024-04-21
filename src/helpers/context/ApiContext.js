@@ -89,6 +89,11 @@ export const AuthProvider = ({ children }) => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET',
+                        'Access-Control-Max-Age': '3600',
+                        'X-OL-Stats': 'enabled',
+                        'Referrer-Policy': 'strict-origin-when-cross-origin',
                     },
                 }
             );
